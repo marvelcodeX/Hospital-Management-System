@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}Get Prescription{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Get Prescription</h1>
+    <form method="POST" action="{{ url_for('get_prescription') }}">
+        <label for="patient_name">Patient's Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        <div class="wrap">
+            <button class="submit-button" type="submit">Get Prescription</button>
+        </div>
+    </form>
+    {% if prescription_data %}
+        <h3>Prescription:</h3>
+        <ul>
+            {% for prescription in prescription_data %}
+            <li>{{ prescription.name }} - {{ prescription.prescription}} </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No prescription found for the patient.</p>
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+id,name,test_name,result
+1,Aarav Sharma,Blood Test,Yes
+2,Priya Singh,Ultrasound,No
+3,Kavya Gupta,Thyroid Test,Yes
+4,Arjun Patel,ECG,No
+5,Sneha Reddy,MRI,Yes
+6,Rohan Verma,X-Ray,No
+7,Madhavi Kumar,CT Scan,Yes
+8,Surya Das,Urine Test,No
+9,Ananya Gupta,Blood Test,Yes
+10,Aditya Sharma,Thyroid Test,No
+11,Nisha Patel,Ultrasound,Yes
+12,Vikram Reddy,ECG,No
+13,Aradhya Singh,MRI,Yes
+14,Rajesh Kumar,X-Ray,No
+15,Maya Verma,CT Scan,Yes
+16,Krish Sharma,Urine Test,No
+17,Aisha Gupta,Blood Test,Yes
+18,Vivek Patel,Thyroid Test,No
+19,Neha Reddy,ECG,Yes
+20,Aniket Kumar,MRI,No
+
+

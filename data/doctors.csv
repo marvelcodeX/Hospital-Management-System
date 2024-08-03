@@ -1,0 +1,16 @@
+id,name,department,timings,available_now
+1,Dr. Arjun Kumar,Cardiology,9am-5pm,Yes
+2,Dr. Priya Sharma,Orthopedics,10am-6pm,Yes
+3,Dr. Aarav Singh,Neurology,8am-4pm,Yes
+4,Dr. Nisha Gupta,Dermatology,9:30am-5:30pm,Yes
+5,Dr. Rahul Patel,Gastroenterology,8:30am-4:30pm,No
+6,Dr. Ananya Das,Endocrinology,9am-5pm,Yes
+7,Dr. Vivek Reddy,Oncology,10am-6pm,Yes
+8,Dr. Pooja Shah,Opthalmology,8am-4pm,No
+9,Dr. Karan Singh,Psychiatry,9:30am-5:30pm,Yes
+10,Dr. Alisha Verma,Obstetrics & Gynecology,8:30am-4:30pm,Yes
+11,Dr. Pranav Sharma,ENT,9am-5pm,Yes
+12,Dr. Sneha Patel,Pediatrics,10am-6pm,Yes
+13,Dr. Deepak Kumar,General Surgery,8am-4pm,Yes
+14,Dr. Tanvi Gupta,Plastic Surgery,9:30am-5:30pm,Yes
+15,Dr. Rajat Jain,Internal Medicine,8:30am-4:30pm,No

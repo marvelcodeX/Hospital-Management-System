@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Dashboard</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <ul>
+        <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+        <li><a href="{{ url_for('get_patient_info') }}">Get Patient Information</a></li>
+        <li><a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a></li>
+        <li><a href="{{ url_for('get_test_results') }}">Get Test Results</a></li>
+        <li><a href="{{ url_for('blood_bank') }}">Blood Bank</a></li>
+        <li><a href="{{ url_for('get_prescription') }}">Get Prescription</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+
+

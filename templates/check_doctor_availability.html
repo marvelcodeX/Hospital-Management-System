@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}Check Doctor Availability{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Check Doctor Availability</h1>
+    <form method="POST" action="{{ url_for('check_doctor_availability') }}">
+        <label for="doctor_name">Doctor's Name:</label>
+        <input type="text" id="doctor_name" name="doctor_name" required>
+        <div class="wrap">
+            <button class="submit-button" type="submit">Check Availability</button>
+        </div>
+    </form>
+    {% if doctor_data %}
+        <h3>Doctor Information:</h3>
+        <p>Name: {{ doctor_data[0].name }}</p>
+        <p>Specialization: {{ doctor_data[0].department }}</p>
+        <p>Availability: {{ doctor_data[0].timings}}</p>
+        <p>Availability: {{ doctor_data[0].available_now}}</p>
+    {% endif %}
+</div>
+{% endblock %}

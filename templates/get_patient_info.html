@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}Get Patient Information{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Get Patient Information</h1>
+    <form method="POST" action="{{ url_for('get_patient_info') }}">
+        <label for="patient_name">Patient's Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        <div class="wrap">
+            <button class="submit-button" type="submit">Get Information</button>
+        </div>
+    </form>
+    {% if patient_data %}
+        <h3>Patient Information:</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Emergency Contact</th>
+                <th>Medical Conditions</th>
+                <th>Allergies</th>
+                <th>Blood Group</th>
+                <th>Doctor Allotted</th>
+            </tr>
+            {% for patient in patient_data %}
+            <tr>
+                <td>{{ patient['id'] }}</td>
+                <td>{{ patient['name'] }}</td>
+                <td>{{ patient['age'] }}</td>
+                <td>{{ patient['gender'] }}</td>
+                <td>{{ patient['address'] }}</td>
+                <td>{{ patient['emergency_contact'] }}</td>
+                <td>{{ patient['medical_conditions'] }}</td>
+                <td>{{ patient['allergies'] }}</td>
+                <td>{{ patient['blood_group'] }}</td>
+                <td>{{ patient['doctor_allotted'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p></p>
+    {% endif %}
+</div>
+{% endblock %}

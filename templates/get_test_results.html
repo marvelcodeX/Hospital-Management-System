@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Get Test Results{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Get Test Results</h1>
+    <form method="POST" action="{{ url_for('get_test_results') }}">
+        <label for="patient_name">Patient's Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        <div class="wrap">
+            <button class="submit-button" type="submit">Get Results</button>
+        </div>
+    </form>
+    {% if test_results_data %}
+        <h3>Test Results:</h3>
+        <ul>
+            {% for result in test_results_data %}
+            <li>{{ result.name }} - {{ result.test_type }} - {{ result.result }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No test results found for the patient.</p>
+    {% endif %}
+</div>
+{% endblock %}

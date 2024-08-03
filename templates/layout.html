@@ -1,0 +1,29 @@
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Dashboard</h1>
+    <div class="dashboard-container">
+        <div class="dashboard-option">
+            <a href="{{ url_for('add_patient') }}">Add Patient</a>
+        </div>
+        <div class="dashboard-option">
+            <a href="{{ url_for('get_patient_info') }}">Get Patient Information</a>
+        </div>
+        <div class="dashboard-option">
+            <a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a>
+        </div>
+        <div class="dashboard-option">
+            <a href="{{ url_for('get_test_results') }}">Get Test Results</a>
+        </div>
+        <div class="dashboard-option">
+            <a href="{{ url_for('blood_bank') }}">Blood Bank</a>
+        </div>
+        <div class="dashboard-option">
+            <a href="{{ url_for('get_prescription') }}">Get Prescription</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

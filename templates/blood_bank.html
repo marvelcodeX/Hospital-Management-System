@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Blood Bank{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1>Blood Bank</h1>
+    {% if blood_bank_data %}
+        <table>
+            <tr>
+                <th>Blood Type</th>
+                <th>Quantity (litres)</th>
+                <th>Location</th>
+            </tr>
+            {% for blood in blood_bank_data %}
+            <tr>
+                <td>{{ blood.blood_group }}</td>
+                <td>{{ blood.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p> </p>
+    {% endif %}
+</div>
+{% endblock %}
