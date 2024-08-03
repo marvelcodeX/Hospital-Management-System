@@ -1,21 +1,123 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-{% block title %}Dashboard{% endblock %}
+        .banner {
+            background-color: #ffffff;
+            color: #224068 ;
+            padding: 10px 40px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
 
-{% block content %}
-<div class="main">
-    <h1>Dashboard</h1>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <ul>
-        <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
-        <li><a href="{{ url_for('get_patient_info') }}">Get Patient Information</a></li>
-        <li><a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a></li>
-        <li><a href="{{ url_for('get_test_results') }}">Get Test Results</a></li>
-        <li><a href="{{ url_for('blood_bank') }}">Blood Bank</a></li>
-        <li><a href="{{ url_for('get_prescription') }}">Get Prescription</a></li>
-    </ul>
-</div>
-{% endblock %}
+        .banner img {
+            height: 90px;
+        }
 
+        .banner h1 {
+            margin: 2;
+            font-size: 30px;
+            position: absolute;
+            left: 44%;
+            
+        }
 
+        .main-content {
+            background-color: #224068;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            flex: 1;
+        }
 
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 0px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: -150px;
+        }
+
+        .button-group button {
+            margin: 90px;
+            margin-bottom: 10px;
+            margin-top: 40px;
+            padding: 25px 100px;
+            font-size: 17px;
+            border: none;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #29bb16;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            height: 70px;
+            line-height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="static\images\logonew.jpg" alt="Company Logo">
+        <form method="POST" action="{{ url_for('dashboard') }}"></form>
+        <h1>SANJEEVINI</h1>
+    </div>
+    <div class="main-content">
+        <div class="button-container">
+            <div class="button-group">
+                <a href="{{ url_for('add_patient') }}"><button>ADD NEW PATIENT</button></a>
+                <a href="{{ url_for('get_patient_info') }}"><button>GET PATIENT INFORMATION</button></a>
+                <a href="{{ url_for('check_doctor_availability') }}"><button>CHECK DOCTOR AVAILABILITY</button></a>
+            </div>
+            <div class="button-group">
+                <a href="{{ url_for('get_test_results') }}"><button>GET TEST RESULTS</button></a>
+                <a href="{{ url_for('blood_bank') }}"><button>BLOOD BANK STATUS</button></a>
+                <a href="{{ url_for('get_prescription') }}"><button><br>PRESCRIPTION <br><br></button></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; SANJEEVINI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,26 +1,154 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-{% block title %}Blood Bank{% endblock %}
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #224068;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+        }
 
-{% block content %}
-<div class="main">
-    <h1>Blood Bank</h1>
-    {% if blood_bank_data %}
-        <table>
-            <tr>
-                <th>Blood Type</th>
-                <th>Quantity (litres)</th>
-                <th>Location</th>
-            </tr>
-            {% for blood in blood_bank_data %}
-            <tr>
-                <td>{{ blood.blood_group }}</td>
-                <td>{{ blood.quantity }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p> </p>
-    {% endif %}
-</div>
-{% endblock %}
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid white;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #000000;
+        }
+
+        .main-content {
+            margin-left: 300px; /* Space for sidebar */
+            padding: 20px;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            background-color: #000000; /* Match the sidebar color for consistency */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            padding-left: 300px;
+            height: 70px; /* Set the height of the footer */
+            line-height: 50px; /* Aligns text vertically in the center */
+            width: 100%;
+            box-sizing: border-box;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="static\images\admin.png" alt="Avatar" class="avatar">
+        <h2>ADMIN</h2>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+            <li><a href="{{ url_for('get_patient_info') }}">Get Patient Information</a></li>
+            <li><a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a></li>
+            <li><a href="{{ url_for('get_test_results') }}">Get Test Results</a></li>
+            <li><a href="{{ url_for('blood_bank') }}">Blood Bank</a></li>
+            <li><a href="{{ url_for('get_prescription') }}">Get Prescription</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Blood Bank</h1>
+        {% if blood_bank_data %}
+            <table>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Quantity (litres)</th>
+                    
+                </tr>
+                {% for blood in blood_bank_data %}
+                <tr>
+                    <td>{{ blood.blood_group }}</td>
+                    <td>{{ blood.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </div>
+    <footer>
+        <p>&copy; SANJEEVINI All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

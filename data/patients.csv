@@ -20,3 +20,4 @@ id,name,age,gender,address,emergency_contact,medical_conditions,allergies,blood_
 19,Neha Reddy,56,Female,123 ABC Street Mumbai,9365874120,Anemia,None,B-,Dr. Sneha Patel
 20,Aniket Kumar,29,Male,456 XYZ Road Delhi,9874563210,Thyroid,Peanuts,O+,Dr. Pooja Shah
 21,niveditha,19,Female,123 LMO Rd Chennai,9363945802,High Blood Sugar,none,B+ve,Dr. Vivek Reddy
+22,Kailash Verma,39,Male,AB Rd 7th Phase Mumbai,9363945833,High Blood Pressure,none,A +ve,Dr. Vivek Reddy

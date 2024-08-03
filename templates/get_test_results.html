@@ -1,26 +1,182 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-{% block title %}Get Test Results{% endblock %}
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #224068;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+        }
 
-{% block content %}
-<div class="main">
-    <h1>Get Test Results</h1>
-    <form method="POST" action="{{ url_for('get_test_results') }}">
-        <label for="patient_name">Patient's Name:</label>
-        <input type="text" id="patient_name" name="patient_name" required>
-        <div class="wrap">
-            <button class="submit-button" type="submit">Get Results</button>
-        </div>
-    </form>
-    {% if test_results_data %}
-        <h3>Test Results:</h3>
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid white;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #000000;
+        }
+
+        .main-content {
+            margin-left: 300px; /* Space for sidebar */
+            padding: 20px;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .wrap {
+            margin-top: 10px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #224068;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #1a2a3b;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #000000; /* Match the sidebar color for consistency */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            padding-left: 300px;
+            height: 70px; /* Set the height of the footer */
+            line-height: 50px; /* Aligns text vertically in the center */
+            width: 100%;
+            box-sizing: border-box;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="static\images\admin.png" alt="Avatar" class="avatar">
+        <h2>ADMIN</h2>
         <ul>
-            {% for result in test_results_data %}
-            <li>{{ result.name }} - {{ result.test_type }} - {{ result.result }}</li>
-            {% endfor %}
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
+            <li><a href="{{ url_for('get_patient_info') }}">Get Patient Information</a></li>
+            <li><a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a></li>
+            <li><a href="{{ url_for('get_test_results') }}">Get Test Results</a></li>
+            <li><a href="{{ url_for('blood_bank') }}">Blood Bank</a></li>
+            <li><a href="{{ url_for('get_prescription') }}">Get Prescription</a></li>
         </ul>
-    {% else %}
-        <p>No test results found for the patient.</p>
-    {% endif %}
-</div>
-{% endblock %}
+    </div>
+    <div class="main-content">
+        <h1>Get Test Results</h1>
+        <form method="POST" action="{{ url_for('get_test_results') }}">
+            <label for="patient_name">Patient's Name:</label>
+            <input type="text" id="patient_name" name="patient_name" required>
+            <div class="wrap">
+                <button class="submit-button" type="submit">Get Results</button>
+            </div>
+        </form>
+        {% if test_results_data %}
+            <h3>Test Results:</h3>
+            <ul>
+                {% for result in test_results_data %}
+                <li>{{ result.name }} - {{ result.test_type }} - {{ result.result }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No test results found for the patient.</p>
+        {% endif %}
+    </div>
+    <footer>
+        <p>&copy; SANJEEVINI All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
