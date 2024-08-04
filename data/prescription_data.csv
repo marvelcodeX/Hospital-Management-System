@@ -1,22 +1,22 @@
-name,prescription
-Aarav Sharma,Metformin Aspirin
-Priya Singh,Lisinopril Atorvastatin
-Kavya Gupta,Albuterol Montelukast
-Arjun Patel,Atenolol Clopidogrel
-Sneha Reddy,Ibuprofen Naproxen
-Rohan Verma,Levothyroxine Paracetamol
-Madhavi Kumar,Ferrous Sulfate Cetirizine
-Surya Das,Losartan Hydrochlorothiazide
-Ananya Gupta,Simvastatin Fenofibrate
-Aditya Sharma,Sumatriptan Ibuprofen
-Nisha Patel,Metformin Glibenclamide
-Vikram Reddy,Amlodipine Lisinopril
-Aradhya Singh,Antihistamine Loratadine
-Rajesh Kumar,Paracetamol Ibuprofen
-Maya Verma,Amlodipine Hydrochlorothiazide
-Krish Sharma,Atenolol Isosorbide Mononitrate
-Aisha Gupta,Metformin Aspirin
-Vivek Patel,Atorvastatin Ezetimibe
-Neha Reddy,Ferrous Sulfate Folic Acid
-Aniket Kumar,Levothyroxine Paracetamol
+name,prescription,dosage
+Aarav Sharma,Metformin Aspirin,After food: 1-0-1
+Priya Singh,Lisinopril Atorvastatin,After food: 1-0-1
+Kavya Gupta,Albuterol Montelukast,After food: 1-0-1
+Arjun Patel,Atenolol Clopidogrel,After food: 1-0-1
+Sneha Reddy,Ibuprofen Naproxen,After food: 1-0-1
+Rohan Verma,Levothyroxine Paracetamol,After food: 1-0-1
+Madhavi Kumar,Ferrous Sulfate Cetirizine,After food: 1-0-1
+Surya Das,Losartan Hydrochlorothiazide,After food: 1-0-1
+Ananya Gupta,Simvastatin Fenofibrate,After food: 1-0-1
+Aditya Sharma,Sumatriptan Ibuprofen,After food: 1-0-1
+Nisha Patel,Metformin Glibenclamide,After food: 1-0-1
+Vikram Reddy,Amlodipine Lisinopril,After food: 1-0-1
+Aradhya Singh,Antihistamine Loratadine,After food: 1-0-1
+Rajesh Kumar,Paracetamol Ibuprofen,After food: 1-0-1
+Maya Verma,Amlodipine Hydrochlorothiazide,After food: 1-0-1
+Krish Sharma,Atenolol Isosorbide Mononitrate,After food: 1-0-1
+Aisha Gupta,Metformin Aspirin,After food: 1-0-1
+Vivek Patel,Atorvastatin Ezetimibe,After food: 1-0-1
+Neha Reddy,Ferrous Sulfate Folic Acid,After food: 1-0-1
+Aniket Kumar,Levothyroxine Paracetamol,After food: 1-0-1
 
