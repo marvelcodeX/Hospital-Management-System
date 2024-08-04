@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>  <!--Contains meta-information about the document, including styles.-->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,9 +76,10 @@
     </style>
 </head>
 <body>
-    <div class="main">
+    <div class="main">    <!--A container that holds the main content of the page, including the form for login.-->
         <h2>Welcome!</h2>
         <h3>Enter your login credentials</h3>
+        <!--The url_for('login') function is a Flask method that generates a URL for the login route.-->
         <form method="POST" action="{{ url_for('login') }}">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter your Username" required>
@@ -90,15 +91,7 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+        
     </div>
 </body>
 </html>

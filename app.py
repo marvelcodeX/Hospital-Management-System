@@ -13,7 +13,7 @@ PASSWORD = "password"
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
 patients_file = os.path.join(data_folder, 'patients.csv')
 doctors_file = os.path.join(data_folder, 'doctors.csv')
-test_results_file = os.path.join(data_folder, 'test_results.csv')
+test_results_file = os.path.join(data_folder, 'test_result.csv')
 blood_bank_file = os.path.join(data_folder, 'blood_bank.csv')
 prescription_file = os.path.join(data_folder, 'prescription_data.csv')
 
@@ -70,11 +70,12 @@ def add_patient():
         allergies = request.form.get('allergies')
         blood_group = request.form.get('blood_group')
         doctor_allotted = request.form.get('doctor_allotted')
+        date_visited = request.form.get('date_visited')
 
         # Append new patient to CSV file
         with open(patients_file, mode='a', newline='', encoding='utf-8') as file:
             fieldnames = ['id', 'name', 'age', 'gender', 'address', 'emergency_contact',
-                          'medical_conditions', 'allergies', 'blood_group', 'doctor_allotted']
+                          'medical_conditions', 'allergies', 'blood_group', 'doctor_allotted','date_visited']
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writerow({
                 'id': patient_id,
@@ -86,7 +87,8 @@ def add_patient():
                 'medical_conditions': medical_conditions,
                 'allergies': allergies,
                 'blood_group': blood_group,
-                'doctor_allotted': doctor_allotted
+                'doctor_allotted': doctor_allotted,
+                'date_visited': date_visited,
             })
         
         flash(f'Patient "{name}" added successfully.', 'success')

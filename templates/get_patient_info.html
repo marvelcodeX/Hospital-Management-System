@@ -68,6 +68,7 @@
             margin-left: 300px; /* Space for sidebar */
             padding: 20px;
             flex: 1;
+            background-image: url(static\images\hospitalbg.jpg) ;
         }
 
         h1 {
@@ -89,7 +90,7 @@
             width: 300px;
             padding: 8px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #000000;
             border-radius: 4px;
         }
 
@@ -186,6 +187,7 @@
                     <th>Allergies</th>
                     <th>Blood Group</th>
                     <th>Doctor Allotted</th>
+                    <th>Date</th>
                 </tr>
                 {% for patient in patient_data %}
                 <tr>
@@ -199,12 +201,14 @@
                     <td>{{ patient['allergies'] }}</td>
                     <td>{{ patient['blood_group'] }}</td>
                     <td>{{ patient['doctor_allotted'] }}</td>
+                    <td>{{ patient['date_visited'] }}</td>
                 </tr>
                 {% endfor %}
-            </table>
-        {% else %}
-            <p>No patient data available.</p>
-        {% endif %}
+                </table>
+            {% else %}
+                <p></p>
+            {% endif %}
+        
     </div>
     <footer>
         <p>&copy; SANJEEVINI All rights reserved.</p>

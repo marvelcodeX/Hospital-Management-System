@@ -1,23 +1,24 @@
-id,name,age,gender,address,emergency_contact,medical_conditions,allergies,blood_group,doctor_allotted
-1,Aarav Sharma,35,Male,123 ABC Street Mumbai,9988776655,Diabetes,None,O+,Dr. Priya Sharma
-2,Priya Singh,45,Female,456 XYZ Road Delhi,9876543210,High Blood Pressure,None,A-,Dr. Rahul Patel
-3,Kavya Gupta,28,Female,789 PQR Avenue Bangalore,9658741236,Asthma,Pollen,O-,Dr. Aarav Singh
-4,Arjun Patel,50,Male,234 LMN Lane Chennai,9741852369,Heart Disease,Peanuts,A+,Dr. Nisha Gupta
-5,Sneha Reddy,62,Female,567 RST Colony Hyderabad,9632587410,Arthritis,Dust,AB+,Dr. Vivek Reddy
-6,Rohan Verma,40,Male,890 OPQ Street Kolkata,9456321874,Thyroid,None,B+,Dr. Ananya Das
-7,Madhavi Kumar,30,Female,123 ABC Street Mumbai,9365874120,Anemia,Pollen,B-,Dr. Karan Singh
-8,Surya Das,55,Male,456 XYZ Road Delhi,9874563210,Kidney Disease,Peanuts,O+,Dr. Pooja Shah
-9,Ananya Gupta,42,Female,789 PQR Avenue Bangalore,9658741236,High Cholesterol,Seafood,A-,Dr. Rahul Patel
-10,Aditya Sharma,48,Male,234 LMN Lane Chennai,9741852369,Migraine,Pollen,A+,Dr. Tanvi Gupta
-11,Nisha Patel,37,Female,567 RST Colony Hyderabad,9632587410,Diabetes,None,AB+,Dr. Pranav Sharma
-12,Vikram Reddy,60,Male,890 OPQ Street Kolkata,9456321874,Hypertension,Dust,B+,Dr. Sneha Patel
-13,Aradhya Singh,25,Female,123 ABC Street Mumbai,9365874120,Allergies,None,B-,Dr. Karan Singh
-14,Rajesh Kumar,47,Male,456 XYZ Road Delhi,9874563210,Arthritis,Seafood,O+,Dr. Vivek Reddy
-15,Maya Verma,33,Female,789 PQR Avenue Bangalore,9658741236,High Blood Pressure,None,A-,Dr. Ananya Das
-16,Krish Sharma,52,Male,234 LMN Lane Chennai,9741852369,Heart Disease,Pollen,A+,Dr. Arjun Kumar
-17,Aisha Gupta,39,Female,567 RST Colony Hyderabad,9632587410,Diabetes,Dust,AB+,Dr. Priya Sharma
-18,Vivek Patel,44,Male,890 OPQ Street Kolkata,9456321874,High Cholesterol,Seafood,B+,Dr. Rahul Patel
-19,Neha Reddy,56,Female,123 ABC Street Mumbai,9365874120,Anemia,None,B-,Dr. Sneha Patel
-20,Aniket Kumar,29,Male,456 XYZ Road Delhi,9874563210,Thyroid,Peanuts,O+,Dr. Pooja Shah
-21,niveditha,19,Female,123 LMO Rd Chennai,9363945802,High Blood Sugar,none,B+ve,Dr. Vivek Reddy
-22,Kailash Verma,39,Male,AB Rd 7th Phase Mumbai,9363945833,High Blood Pressure,none,A +ve,Dr. Vivek Reddy
+id,name,age,gender,address,emergency_contact,medical_conditions,allergies,blood_group,doctor_allotted,date_visited
+1,Aarav Sharma,35,Male,123 ABC Street Mumbai,9988776655,Diabetes,None,O+,Dr. Priya Sharma,20-09-24
+2,Priya Singh,45,Female,456 XYZ Road Delhi,9876543210,High Blood Pressure,None,A-,Dr. Rahul Patel,07-09-24
+3,Kavya Gupta,28,Female,789 PQR Avenue Bangalore,9658741236,Asthma,Pollen,O-,Dr. Aarav Singh,07-09-24
+4,Arjun Patel,50,Male,234 LMN Lane Chennai,9741852369,Heart Disease,Peanuts,A+,Dr. Nisha Gupta,07-09-24
+5,Sneha Reddy,62,Female,567 RST Colony Hyderabad,9632587410,Arthritis,Dust,AB+,Dr. Vivek Reddy,07-09-24
+6,Rohan Verma,40,Male,890 OPQ Street Kolkata,9456321874,Thyroid,None,B+,Dr. Ananya Das,07-09-24
+7,Madhavi Kumar,30,Female,123 ABC Street Mumbai,9365874120,Anemia,Pollen,B-,Dr. Karan Singh,07-09-24
+8,Surya Das,55,Male,456 XYZ Road Delhi,9874563210,Kidney Disease,Peanuts,O+,Dr. Pooja Shah,07-09-24
+9,Ananya Gupta,42,Female,789 PQR Avenue Bangalore,9658741236,High Cholesterol,Seafood,A-,Dr. Rahul Patel,07-09-24
+10,Aditya Sharma,48,Male,234 LMN Lane Chennai,9741852369,Migraine,Pollen,A+,Dr. Tanvi Gupta,07-09-24
+11,Nisha Patel,37,Female,567 RST Colony Hyderabad,9632587410,Diabetes,None,AB+,Dr. Pranav Sharma,07-09-24
+12,Vikram Reddy,60,Male,890 OPQ Street Kolkata,9456321874,Hypertension,Dust,B+,Dr. Sneha Patel,07-09-24
+13,Aradhya Singh,25,Female,123 ABC Street Mumbai,9365874120,Allergies,None,B-,Dr. Karan Singh,07-09-24
+14,Rajesh Kumar,47,Male,456 XYZ Road Delhi,9874563210,Arthritis,Seafood,O+,Dr. Vivek Reddy,07-09-24
+15,Maya Verma,33,Female,789 PQR Avenue Bangalore,9658741236,High Blood Pressure,None,A-,Dr. Ananya Das,07-09-24
+16,Krish Sharma,52,Male,234 LMN Lane Chennai,9741852369,Heart Disease,Pollen,A+,Dr. Arjun Kumar,07-09-24
+17,Aisha Gupta,39,Female,567 RST Colony Hyderabad,9632587410,Diabetes,Dust,AB+,Dr. Priya Sharma,07-09-24
+18,Vivek Patel,44,Male,890 OPQ Street Kolkata,9456321874,High Cholesterol,Seafood,B+,Dr. Rahul Patel,07-09-24
+19,Neha Reddy,56,Female,123 ABC Street Mumbai,9365874120,Anemia,None,B-,Dr. Sneha Patel,07-09-24
+20,Aniket Kumar,29,Male,456 XYZ Road Delhi,9874563210,Thyroid,Peanuts,O+,Dr. Pooja Shah,07-09-24
+21,niveditha,19,Female,123 LMO Rd Chennai,9363945802,High Blood Sugar,none,B+ve,Dr. Vivek Reddy,07-09-24
+22,Kailash Verma,39,Male,AB Rd 7th Phase Mumbai,9363945833,High Blood Pressure,none,A +ve,Dr. Vivek Reddy,07-09-24
+23,Lakshana Rasan,19,Female,456 Rd,3820-8746,Eye problem,pollen,O+ve,Dr. Rahul Patel,07-09-24

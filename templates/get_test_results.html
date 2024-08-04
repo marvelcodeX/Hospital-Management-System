@@ -89,7 +89,7 @@
             width: 300px;
             padding: 8px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #000000;
             border-radius: 4px;
         }
 
@@ -167,11 +167,11 @@
             <h3>Test Results:</h3>
             <ul>
                 {% for result in test_results_data %}
-                <li>{{ result.name }} - {{ result.test_type }} - {{ result.result }}</li>
+                <li>{{ result.name }} - {{ result.test_name }} - {{ result.result }}</li>
                 {% endfor %}
             </ul>
         {% else %}
-            <p>No test results found for the patient.</p>
+            <p></p>
         {% endif %}
     </div>
     <footer>
@@ -179,4 +179,3 @@
     </footer>
 </body>
 </html>
-
