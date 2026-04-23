@@ -87,6 +87,10 @@ export SECRET_KEY="change-this-secret"
 
 The app reads and writes CSV files from the `data/` folder. Keep the header row in each CSV file because the Flask routes use those column names.
 
+## Web App
+
+![Sanjeevini](sanjeevini_img.png)
+
 ## Future Improvements
 
 - Add edit and delete actions for patients.
