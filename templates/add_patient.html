@@ -1,216 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Patient</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+{% extends "base.html" %}
 
-        .sidebar {
-            width: 250px;
-            background-color: #224068;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: fixed;
-            height: 100%;
-        }
+{% block title %}Add Patient | Sanjeevini HMS{% endblock %}
+{% block page_title %}Add Patient{% endblock %}
+{% block page_description %}Create a patient record and save it to the CSV file.{% endblock %}
 
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 2px solid white;
-        }
-
-        .sidebar h2 {
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-size: 24px;
-            text-transform: uppercase;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            width: 100%;
-        }
-
-        .sidebar ul li {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: white;
-            display: block;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #000000;
-        }
-
-        .main-content {
-            flex: 1;
-            margin-left: 300px; /* Space for sidebar */
-            padding: 20px;
-            font-size: large;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-columns {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .input-column {
-            flex: 1;
-            margin-right: 20px;
-        }
-
-        .input-column:last-child {
-            margin-right: 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            border-radius: 4px;
-        }
-
-        .wrap {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .submit-button {
-            padding: 10px 20px;
-            background-color: #1c55a0;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .submit-button:hover {
-            background-color: #29bb16;
-        }
-
-        footer {
-            background-color: #000000;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            padding-left: 300px ;
-            height: 70px;
-            line-height: 60px;
-            width: 100%;
-            box-sizing: border-box;
-
-        }
-
-        footer p {
-            margin: 0;
-            
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <img src="static\images\admin.png" alt="Avatar" class="avatar">
-        <h2>ADMIN</h2>
-        <ul>
-            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-            <li><a href="{{ url_for('add_patient') }}">Add Patient</a></li>
-            <li><a href="{{ url_for('get_patient_info') }}">Get Patient Information</a></li>
-            <li><a href="{{ url_for('check_doctor_availability') }}">Check Doctor Availability</a></li>
-            <li><a href="{{ url_for('get_test_results') }}">Get Test Results</a></li>
-            <li><a href="{{ url_for('blood_bank') }}">Blood Bank</a></li>
-            <li><a href="{{ url_for('get_prescription') }}">Get Prescription</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <h1>Add Patient</h1>
-        <form method="POST" action="{{ url_for('add_patient') }}">
-            <div class="input-columns">
-                <div class="input-column">
-                    <label for="id">ID:</label>
-                    <input type="text" id="id" name="id" required>
-                    
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="age">Age:</label>
-                    <input type="text" id="age" name="age" required>
-                    
-                    <label for="gender">Gender:</label>
-                    <input type="text" id="gender" name="gender" required>
-                    
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" required>
-                </div>
-                <div class="input-column">
-                    <label for="emergency_contact">Emergency Contact:</label>
-                    <input type="text" id="emergency_contact" name="emergency_contact" required>
-                    
-                    <label for="medical_conditions">Medical Conditions:</label>
-                    <input type="text" id="medical_conditions" name="medical_conditions" required>
-                    
-                    <label for="allergies">Allergies:</label>
-                    <input type="text" id="allergies" name="allergies" required>
-                    
-                    <label for="blood_group">Blood Group:</label>
-                    <input type="text" id="blood_group" name="blood_group" required>
-                    
-                    <label for="doctor_allotted">Doctor Allotted:</label>
-                    <input type="text" id="doctor_allotted" name="doctor_allotted" required>
-
-                    <label for="doctor_allotted">Date Visited: </label>
-                    <input type="date" id="date_visited" name="date_visited" required>
-                </div>
+{% block content %}
+    <section class="panel">
+        <form method="POST" action="{{ url_for('add_patient') }}" class="form-grid">
+            <div>
+                <label for="id">Patient ID</label>
+                <input type="text" id="id" name="id" placeholder="Example: 8" required>
             </div>
-            <div class="wrap">
-                <button class="submit-button" type="submit">Submit</button>
+
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Example: Meera Nair" required>
+            </div>
+
+            <div>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="0" max="120" placeholder="Example: 32" required>
+            </div>
+
+            <div>
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="span-2">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Street, city" required>
+            </div>
+
+            <div>
+                <label for="emergency_contact">Emergency Contact</label>
+                <input type="tel" id="emergency_contact" name="emergency_contact" placeholder="10 digit phone number" required>
+            </div>
+
+            <div>
+                <label for="blood_group">Blood Group</label>
+                <select id="blood_group" name="blood_group" required>
+                    <option value="">Select blood group</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="medical_conditions">Medical Conditions</label>
+                <input type="text" id="medical_conditions" name="medical_conditions" placeholder="Example: Diabetes" required>
+            </div>
+
+            <div>
+                <label for="allergies">Allergies</label>
+                <input type="text" id="allergies" name="allergies" placeholder="Example: None" required>
+            </div>
+
+            <div>
+                <label for="doctor_allotted">Doctor Allotted</label>
+                <input type="text" id="doctor_allotted" name="doctor_allotted" placeholder="Example: Dr. Priya Sharma" required>
+            </div>
+
+            <div>
+                <label for="date_visited">Date Visited</label>
+                <input type="date" id="date_visited" name="date_visited" required>
+            </div>
+
+            <div class="form-actions span-2">
+                <button class="primary-button" type="submit">Save Patient</button>
             </div>
         </form>
-    </div>
-    <footer>
-        <p>&copy; SANJEEVINI All rights reserved.</p>
-    </footer>
-</body>
-</html>
-
+    </section>
+{% endblock %}

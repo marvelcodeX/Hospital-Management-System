@@ -1,126 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+{% extends "base.html" %}
 
-        .banner {
-            background-color: #ffffff;
-            color: #224068 ;
-            padding: 10px 40px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            
-        }
+{% block title %}Dashboard | Sanjeevini HMS{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_description %}A quick overview of hospital records stored in CSV files.{% endblock %}
 
-        .banner img {
-            height: 90px;
-        }
+{% block content %}
+    <section class="stats-grid">
+        <article class="stat-card">
+            <span>Patients</span>
+            <strong>{{ stats.patients }}</strong>
+            <small>Total registered patients</small>
+        </article>
+        <article class="stat-card">
+            <span>Doctors</span>
+            <strong>{{ stats.doctors }}</strong>
+            <small>Doctors in directory</small>
+        </article>
+        <article class="stat-card">
+            <span>Tests</span>
+            <strong>{{ stats.tests }}</strong>
+            <small>Lab result records</small>
+        </article>
+        <article class="stat-card">
+            <span>Blood Groups</span>
+            <strong>{{ stats.blood_groups }}</strong>
+            <small>Stock categories tracked</small>
+        </article>
+    </section>
 
-        .banner h1 {
-            margin: 2;
-            font-size: 30px;
-            position: absolute;
-            left: 44%;
-            
-        }
+    <section class="action-grid">
+        <a class="action-card" href="{{ url_for('add_patient') }}">
+            <strong>Add Patient</strong>
+            <span>Create a new patient record.</span>
+        </a>
+        <a class="action-card" href="{{ url_for('get_patient_info') }}">
+            <strong>Find Patient</strong>
+            <span>Search existing patient details.</span>
+        </a>
+        <a class="action-card" href="{{ url_for('check_doctor_availability') }}">
+            <strong>Doctor Availability</strong>
+            <span>Check timings and current status.</span>
+        </a>
+        <a class="action-card" href="{{ url_for('get_test_results') }}">
+            <strong>Test Results</strong>
+            <span>View lab result entries by patient.</span>
+        </a>
+        <a class="action-card" href="{{ url_for('blood_bank') }}">
+            <strong>Blood Bank</strong>
+            <span>Review blood stock quantities.</span>
+        </a>
+        <a class="action-card" href="{{ url_for('get_prescription') }}">
+            <strong>Prescription</strong>
+            <span>Look up prescribed medicines.</span>
+        </a>
+    </section>
 
-        .main-content {
-            background-color: #224068;
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            flex: 1;
-        }
-
-        .button-container {
-            display: flex;
-            
-            justify-content: space-between;
-            width: 100%;
-            max-width: 500px;
-            margin-top: 0px;
-        }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-left: -150px;
-        }
-
-        .button-group button {
-            margin: 90px;
-            margin-bottom: 10px;
-            margin-top: 40px;
-            padding: 25px 100px;
-            font-size: 17px;
-            border: none;
-            border-radius: 5px;
-            color: rgb(0, 0, 0);
-            background-color: #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button-group button:hover {
-            background-color: #29bb16;
-        }
-
-        footer {
-            background-color: #000000;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            height: 70px;
-            line-height: 60px;
-            width: 100%;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="banner">
-        <img src="static\images\logonew.jpg" alt="Company Logo">
-        <form method="POST" action="{{ url_for('dashboard') }}"></form>
-        <h1>SANJEEVINI</h1>
-    </div>
-    <div class="main-content">
-        <div class="button-container">
-            <div class="button-group">
-                <a href="{{ url_for('add_patient') }}"><button>ADD NEW PATIENT</button></a>
-                <a href="{{ url_for('get_patient_info') }}"><button>GET PATIENT INFORMATION</button></a>
-                <a href="{{ url_for('check_doctor_availability') }}"><button>CHECK DOCTOR AVAILABILITY</button></a>
+    <section class="two-column">
+        <div class="panel">
+            <div class="section-title">
+                <h2>Recent Patients</h2>
+                <a href="{{ url_for('get_patient_info') }}">Search all</a>
             </div>
-            <div class="button-group">
-                <a href="{{ url_for('get_test_results') }}"><button>GET TEST RESULTS</button></a>
-                <a href="{{ url_for('blood_bank') }}"><button>BLOOD BANK STATUS</button></a>
-                <a href="{{ url_for('get_prescription') }}"><button><br>PRESCRIPTION <br><br></button></a>
+            {% if recent_patients %}
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Doctor</th>
+                                <th>Blood</th>
+                                <th>Visit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for patient in recent_patients %}
+                                <tr>
+                                    <td>{{ patient.name }}</td>
+                                    <td>{{ patient.doctor_allotted }}</td>
+                                    <td>{{ patient.blood_group }}</td>
+                                    <td>{{ patient.date_visited }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="empty-state">No patient records found.</p>
+            {% endif %}
+        </div>
+
+        <div class="panel">
+            <div class="section-title">
+                <h2>Blood Stock</h2>
+                <a href="{{ url_for('blood_bank') }}">View details</a>
+            </div>
+            <div class="blood-grid">
+                {% for blood in blood_bank_data[:6] %}
+                    <div class="blood-chip">
+                        <strong>{{ blood.blood_group }}</strong>
+                        <span>{{ blood.quantity }}</span>
+                    </div>
+                {% else %}
+                    <p class="empty-state">No blood bank data found.</p>
+                {% endfor %}
             </div>
         </div>
-    </div>
-    <footer>
-        <p>&copy; SANJEEVINI. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    </section>
+{% endblock %}

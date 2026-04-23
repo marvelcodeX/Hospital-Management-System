@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sanjeevini Hospital Management System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% block body_class %}app-page{% endblock %}">
+    {% block layout %}
+        <div class="app-layout">
+            <aside class="sidebar">
+                <a class="brand" href="{{ url_for('dashboard') }}" aria-label="Sanjeevini dashboard">
+                    <span class="brand-mark">S</span>
+                    <span>
+                        <strong>Sanjeevini</strong>
+                        <small>Hospital Admin</small>
+                    </span>
+                </a>
+
+                <div class="admin-card">
+                    <img src="{{ url_for('static', filename='images/admin.png') }}" alt="Admin avatar">
+                    <div>
+                        <strong>{{ session.get("username", "Admin")|title }}</strong>
+                        <small>Front desk console</small>
+                    </div>
+                </div>
+
+                <nav class="side-nav" aria-label="Main navigation">
+                    {% for endpoint, label in nav_items %}
+                        <a href="{{ url_for(endpoint) }}" class="{% if request.endpoint == endpoint %}active{% endif %}">
+                            {{ label }}
+                        </a>
+                    {% endfor %}
+                </nav>
+
+                <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+            </aside>
+
+            <main class="content">
+                <header class="content-header">
+                    <p class="eyebrow">{% block eyebrow %}Sanjeevini HMS{% endblock %}</p>
+                    <h1>{% block page_title %}{% endblock %}</h1>
+                    <p>{% block page_description %}{% endblock %}</p>
+                </header>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-list">
+                            {% for category, message in messages %}
+                                <div class="flash {{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    {% endblock %}
+</body>
+</html>

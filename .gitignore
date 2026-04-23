@@ -1,3 +1,35 @@
-venv/
+# Python cache and build files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Flask and local environment
+.env
+.flaskenv
+instance/
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Coverage
+.coverage
+htmlcov/
